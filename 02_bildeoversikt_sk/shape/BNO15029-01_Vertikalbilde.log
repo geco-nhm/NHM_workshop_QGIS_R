@@ -1,0 +1,94 @@
+LOGGFIL FOR SOSI->SHAPE KONV
+C:\Program Files (x86)\Geodata AS\SOSI-Shape3\bin\Sosi2shp.exe  versjon 3.0.0 2009-05-05
+GD-lib.  versjon 3.0.0 2009-05-05
+
+Prosjektfil...................: C:\Users\ban\AppData\Local\Temp\GDp3
+Inifil for prosjekt...........: sosi2av.ini
+Loggfil.......................: H:\Prosjekt_Norge\QGIS_kurs\bildeoversikt_sk\shape\BNO15029-01_Vertikalbilde.log
+
+Nivå..........................: 3
+
+OPPSETT
+
+Flateformat...................: 2
+GJEMME_OPPRINNELSE............: 1
+ARV_FRA_HODE..................: 1
+Maks_kordelengde..............: 5.000
+Maks_retningsendring..........: 5.000
+Desimal_Sjekk.................: 0
+ANNONAVN......................: TEKST
+REGIONNAVN....................: POLY
+
+
+SOSI-filer:
+	H:\Prosjekt_Norge\QGIS_kurs\bildeoversikt_sk\BNO15029-01_Vertikalbilde.sos
+SOSIDEF_FIL: C:\Program Files (x86)\Geodata AS\SOSI-Shape3\standard\sosidef40.txt
+
+
+Resultatfiler (SHAPE):
+	H:\Prosjekt_Norge\QGIS_kurs\bildeoversikt_sk\shape\BNO15029-01_Vertikalbildel (LINJE)
+	H:\Prosjekt_Norge\QGIS_kurs\bildeoversikt_sk\shape\BNO15029-01_Vertikalbildef (FLATE)
+
+
+KONVERTERING
+Start konvertering :
+Tue Nov 29 20:45:08 2016
+
+Leser H:\Prosjekt_Norge\QGIS_kurs\bildeoversikt_sk\BNO15029-01_Vertikalbilde.sos
+
+HODE:
+ADVR! Linjenr 11: ENHET-H er ikke definert i hodet. Verdi for ENHET benyttes.
+ADVR! Linjenr 11: ENHET-D er ikke definert i hodet. Verdi for ENHET benyttes.
+..ENHET 0.010000
+..TEGNSETT ISO8859-1
+..ORIGO-NØ	0	0
+..OMRÅDE
+...MIN-NØ	6801442	497509
+...MAX-NØ	6973861	678779
+..KOORDSYS 22
+
+
+RESULTAT LINJE:
+Ant. supportert i SOSI-filene.: 25050
+Ant. skrevet..................: 25050
+Ant. egenskaper definert......: 8
+    KARTID         T35  1
+    MÅLEMETODE     H2   1
+    NØYAKTIGHET    H6   1
+    SYNBARHET      H2   1
+    H-MÅLEMETODE   H2   1
+    H-NØYAKTIGHET  H5   1
+    MAX-AVVIK      H6   1
+    OBJTYPE        T32  1
+
+OBJTYPEr LINJE og antall konvertert
+    Bildegrense  12525
+    Ukjent       12525
+
+RESULTAT FLATE:
+Ant. supportert i SOSI-filene.: 12525
+Ant. skrevet..................: 12525
+Ant. egenskaper definert......: 20
+    SERIENUMMER          T17      1
+    KAMERALØPENUMMER     H4       1
+    BILDEFILMULTI        T18      1
+    BILDEOPPLØSNING      H1       1
+    BILDEKATEGORI        H1       1
+    BRENNVIDDE           D10.2    1
+    KAMERATYPE           T30      1
+    OPPTAKSMETODE        H1       1
+    MÅLEMETODE           H2       1
+    NØYAKTIGHET          H6       1
+    SYNBARHET            H2       1
+    H-MÅLEMETODE         H2       1
+    H-NØYAKTIGHET        H5       1
+    MAX-AVVIK            H6       1
+    STRIPENUMMER         T10      1
+    OBJTYPE              T32      1
+    KALIBRERINGSRAPPORT  T255     1
+    FLYHØYDE             D10.0    1
+    BILDENUMMER          H4       1
+    TIDSPUNKT            DATOTID  1
+
+OBJTYPEr FLATE og antall konvertert
+    Vertikalbilde  12525
