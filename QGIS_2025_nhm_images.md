@@ -1,7 +1,7 @@
 # Kurs i QGIS (3.x)
 
 Forfatter: Anne B. Nilsen NIBIO og Peter Horvath NHM
-
+sist oppdatert 20.05.2025
 - [Kurs i QGIS (3.x)](#kurs-i-qgis-3x)
 - [1. Bli kjent med QGIS-oppsettet](#1-bli-kjent-med-qgis-oppsettet)
     - [Prosjektinnstillinger](#prosjektinnstillinger)
@@ -134,7 +134,7 @@ Liste med alle EPSG-koder («hva og hvor»): <http://spatialreference.org/ref/ep
 
 ![alt text](QGIS_2025_nhm_images/image_94.png) ![alt text](QGIS_2025_nhm_images/image_28.png) ![alt text](QGIS_2025_nhm_images/image_62.png) ![alt text](QGIS_2025_nhm_images/image_160.png)!
 
-Hent inn shapefilene (UTM32 N) fra ```\oppstart\shape``` i Filutforsker. (Tips! Sorter på type.)
+Hent inn shapefilene (UTM32 N) fra ```\01_oppstart\shape``` i Filutforsker. (Tips! Sorter på type.)
 Vektorfilene inneholder informasjon om koordinatsystem i tilhørende prj-fil.
 
 **Kartlagene** (shapfilene) legges inn i bestemt rekkefølge punkt, linje, polygon og får tildelt vilkårlige farger med unntak av shapefiler som har tilhørende stilfil (qml-fil med samme navn som shapefila).
@@ -145,7 +145,7 @@ Endre symboler, farger, påskrift, kopier stiler og lagre stilfil for gjenbruk. 
 
 **Rasterfilene** inneholder ingen informasjon om koordinatsystem. Avhengig av hva man har valgt under fane CRS under Innstillinger, vil man bli spurt om koordinatsystem eller QGIS antar at rasterfilene har samme koordinatsystem som prosjektet.  Mer om dette i kap. 4.1.
 
-Hent inn rasterfilene (UTM32 N) fra ```\oppstart\raster``` i Filutforsker. (Tips! Sorter på type.)
+Hent inn rasterfilene (UTM32 N) fra ```\01_oppstart\raster``` i Filutforsker. (Tips! Sorter på type.)
 
 **Lagre prosjektet** (angi plassering og navn) ***.qgs** (en XML-fil om kartlagene og utseende i prosjektet).
 
@@ -183,7 +183,7 @@ Gå til [Geonorge](https://www.geonorge.no/)
 Søk etter jordkv, velg tjeneste og Jordkvalitet - WFS (web feature service).
 Tjenesten leverer GML vektordata for jordkvalitet som viser en vurdering av jordegenskaper som er viktig for den agronomiske bruken av jorda, samt jordbruksarealets hellingsgrad. Kartet er beregnet uavhengig av klima og forutsetter at jorda er drevet iht. god agronomisk praksis.
 
-Kopier URL-adressen.
+Kopier [URL-adressen](https://wms.nibio.no/cgi-bin/jordkvalitet?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities). 
 
 I QGIS: Klikk Open Data Source Manager – WFS. Klikk Ny og lim inn URL-adressen i WFS-vinduet i QGIS og klikk OK.
 Velg lag og klikk Legg til.
@@ -197,7 +197,7 @@ Pass på tegnerekkefølgen.
 
 Gå til [Geonorge](https://www.geonorge.no/). Søk etter norge i bilder. Velg Norge i bilder WMS-Ortofoto. Kopier [URL](http://opencache.statkart.no/gatekeeper/gk/gk.open_nib_utm32_wmts_v2?SERVICE=WMTS&REQUEST=GetCapabilities). Klikk Koble til og velg lag og koordinatsystem.
 
-Oppgave: Legg til en wms- eller wfs-tjeneste fra NIBIO
+**Oppgave**: Legg til en wms- eller wfs-tjeneste fra NIBIO
 
 Søk direkte i geoenorge.no. Kopier URL’n og lim denne inn i WMS- eller WFS-vinduet i QGIS.
 
@@ -337,9 +337,9 @@ NB! Bruk 4 filer.
 
 4. .prj (projeksjonsfil som inneholder informasjon om datum og koordinatsystem)
 
-Start Filutforsker. Gå til katalogen ```\bildeoversikt_sk\``` med en sosifil for å vise vertikalbildedekning.
+Start Filutforsker. Gå til katalogen ```\02_bildeoversikt_sk\``` med en sosifil for å vise vertikalbildedekning.
 
-Ferdig konvertert (vha. SOSI-shape) shapefil ligger på ```\bildeoversikt_sk\shape\```.
+Ferdig konvertert (vha. SOSI-shape) shapefil ligger på ```\02_bildeoversikt_sk\shape\```.
 
 Legg merke til at sosifiler som inneholder både linjer og flater, konverteres til to shapefiler med en l eller f i filnavnet for hhv. linje og flate.
 
@@ -349,7 +349,7 @@ NB! Det lages ikke prj-fil med SOSI-Shape.
 
 Åpner sosifila i en teksteditor og ser at det står ..KOORDSYS 22, altså Euref89 UTM-sone 32 N. (..KOORDSYS 23 og ..KOORDSYS 25 er hhv. UTM-sone 33 N og 35 N.)
 
-Hent inn sosifila på ```\bildeoversikt_sk\```. Man blir ikke spurt om koordinatsystem (står i sosihodet).
+Hent inn sosifila på ```\02_bildeoversikt_sk\```. Man blir ikke spurt om koordinatsystem (står i sosihodet).
 
 Legg merke til at sosifila vises som to kartlag: lines og points.
 
@@ -367,7 +367,7 @@ I dette tilfellet ber QGIS om CRS når filen legges til.
 
 Dette alternativet (eller det tredje alternativet) er veldig praktisk å bruke hvis du skal laste opp mange filer der det ikke finnes projeksjonsfiler som forteller hvilket CRS som skal brukes. Eksempel: Du laster opp 14 ortofotoer som dekker Kirkenes (en by i Finnmark fylke i Nord-Norge, UTM 35N = EPSG 25835) i TIF-format. Det følger bare en tfw-fil med hver tif-fil (tif-verdensfilen som forteller pikselstørrelsen og x- og y-koordinatene til pikselen i øvre høyre hjørne). Den sier ingenting om CRS (dvs. ingen EPSG-kode er nevnt). Fra begynnelsen ville du satt QGIS-prosjektets CRS til EPSG 25835 (siden du jobber i Finnmark). Deretter kan du laste opp ALLE 14 tif-filer ved å klikke og dra fra filutforskeren. Du vil ikke bli bedt om å sette CRS 14 ganger. QGIS antar at tif-filene er i 25835. Du sparer tid og klikk.
 
-Selv om rasterfilen har en verdensfil (tfw, jpw, pgw), vil QGIS fortsatt spørre etter CRS i tilfelle a), f.eks. se ```\oppstart\raster```.
+Selv om rasterfilen har en verdensfil (tfw, jpw, pgw), vil QGIS fortsatt spørre etter CRS i tilfelle a), f.eks. se ```\01_oppstart\raster```.
 
 Eksempel på en verdensfil:
 
@@ -389,7 +389,7 @@ Where line (see <https://en.wikipedia.org/wiki/World_file>)
 5: x-coordinate of the centre of the upper left pixel
 6: y-coordinate of the centre of the upper left pixel
 ```
-Hent inn shapefilene på ```\bildeoversikt_sk\shape\```.
+Hent inn shapefilene på ```\02_bildeoversikt_sk\shape\```.
 
 Man får enten en advarsel (hvis man har satt «Use project CRS» under Innstillinger) eller man blir spurt om CRS (hvis man har satt «Prompt for CRS»), se kap. 1.
 
@@ -397,7 +397,7 @@ Man får enten en advarsel (hvis man har satt «Use project CRS» under Innstill
 
 **Oppgave**: Legg til shapefil uten prj-fil
 
-Endre CRS til 25833, zoom inn til 1919-2_f, sett målestokk til 1:2 000 000 og hent inn ```\demo_u_prj\1910-2_f_u_prj.shp``` angi ev. 25833 som CRS (avh. av hva som er satt under CRS innstillinger i kap. 1). Skru på laget og panorer kartet mot høyre hvis ikke begge kartlag er synlige.
+Endre CRS til 25833, zoom inn til 1919-2_f, sett målestokk til 1:2 000 000 og hent inn ```\03_demo_u_prj\1910-2_f_u_prj.shp``` angi ev. 25833 som CRS (avh. av hva som er satt under CRS innstillinger i kap. 1). Skru på laget og panorer kartet mot høyre hvis ikke begge kartlag er synlige.
 
 Bytt tilbake til 25832 og fjern ```1910-2_f_u_prj.shp```.
 
@@ -477,7 +477,7 @@ I tillegg kan man støte borti tegnsettene DOSN8 (MS-DOS Norsk 8 bits) og ISO885
 
 ## Hente inn en csv-fil med koordinater
 
-Gå til ```\tabeller``` og åpne ```Tab_m_koordinater_u33.csv``` i Excel. Legg merke til at øverste rad (=første post) inneholder kolonnenavn (egenskapsnavn).
+Gå til ```04_tabeller\``` og åpne ```Tab_m_koordinater_u33.csv``` i Excel. Legg merke til at øverste rad (=første post) inneholder kolonnenavn (egenskapsnavn).
 
 Klikk Open Data Source Manager – Delimited Text.
 
@@ -550,7 +550,7 @@ Hvis ok, lagres kartlaget i en ny shapefil. Høyreklikker på Reprojected, velge
 
 ### Koordinater
 
-Hent inn shapefilene fra ```\oppstart\shape``` om disse ikke allerede ligger inne.
+Hent inn shapefilene fra ```\01_oppstart\shape``` om disse ikke allerede ligger inne.
 
 Åpner egenskapstabellen til ```1910-2_ssu``` og slår på **redigeringsmodus**. ![Figure](QGIS_2025_nhm_images/image_2.png)
 
@@ -635,13 +635,17 @@ GeoPackage er standardformatet for vektordata i QGIS.
 
 Programtillegg i QGIS er små utvidelser som legger til ekstra funksjonalitet i programmet, for eksempel nye analyseverktøy eller støtte for spesifikke dataformater. De kan installeres direkte fra QGIS ved å trykke på ```Plugins - Manage and Install Plugins - All```. Man kan filtrere på både offisielle og brukerlagde tillegg. 
 
-Et eksempel er **"GBIF Occurrences"**  som lar deg søke etter og laste ned artsforekomster direkte fra GBIF (Global Biodiversity Information Facility) sitt API. Dette gir deg rask tilgang til globale biodiversitetsdata uten å forlate QGIS. Søk etter "GBIF" og så klikk "Install Plugin" 
+Et eksempel er **"GBIF Occurrences"**  som lar deg søke etter og laste ned artsforekomster direkte fra GBIF (Global Biodiversity Information Facility) sitt API. Dette gir deg rask tilgang til globale biodiversitetsdata uten å forlate QGIS. Søk etter "GBIF" og så klikk "Install Plugin". 
 
 ![Figure](QGIS_2025_nhm_images/image_168.png)
 
 Du kan søke etter arter ved å bruke vitenskapelige navn og filtrere etter kriterier som observasjonstype, år og geografisk område. Resultatene lastes inn som midlertidige punktlag i QGIS, med attributtabeller som inneholder metadata som dato, datakilde og koordinater. Du kan lagre disse lagene permanent i formater som GeoPackage eller shapefil for videre analyse.
 
+For denne øvelsen vil vi bruke ramsløk som et eksempel. Skriv "allium ursinum" i vitenskapelig navn feltet
+
 ![Figure](QGIS_2025_nhm_images/image_169.png)
+
+mer info om nyttige plugins [her](https://docs.qgis.org/3.40/en/docs/training_manual/qgis_plugins/plugin_examples.html)
 
 # 7. Digitalisering (kartlegging)
 
@@ -890,9 +894,9 @@ Man kan endre utseendet på alle geometrityper, f.eks. symbol, farge, størrelse
 
 Hent inn
 
-```\oppstart\shape\1910-2_ssu.shp```, ```1910-2_l.shp```, ```1910-2_f.shp```
+```\01_oppstart\shape\1910-2_ssu.shp```, ```1910-2_l.shp```, ```1910-2_f.shp```
 
-```\oppstart\raster\1910-2_o.png```
+```\01_oppstart\raster\1910-2_o.png```
 
 Slå på Layer styling-panelet, og påse at Live Update er slått på. Her kan man foreta undo/redo.
 
@@ -1057,7 +1061,7 @@ NB! Tenk gjennom hensikten med kartet. Lag skisser for hånd med hensyn til «ba
 
 Hva skal kartet fortelle? Hvilke elementer må da med (ev. krav fra utgiver)? Er nordpil og grid nødvendig? Må man ha med stedsnavn? Bakgrunnskart? Husk less is more – tydeliggjør budskapet.
 
-Hent inn ``\kartografi\reir_ar5_f_s.shp``. Kartlaget tegnes med bestemte farger og påskrift da den tilhørende qml-fila (med samme «fornavn») ligger i samme mappe. Aktiver dette kartlaget og zoom inn til ruta i nordvestre hjørne. Sett målestokken til 1:4000.
+Hent inn ``\05_kartografi\reir_ar5_f_s.shp``. Kartlaget tegnes med bestemte farger og påskrift da den tilhørende qml-fila (med samme «fornavn») ligger i samme mappe. Aktiver dette kartlaget og zoom inn til ruta i nordvestre hjørne. Sett målestokken til 1:4000.
 
 Velg Project – New Print Layout og angi et navn. (Alternativt: Klikk Layout Manager og så Create (Empty layout) og angi et navn.) Et nytt layout-vindu åpnes.
 
@@ -1081,7 +1085,7 @@ Gjør man endringer i kartvinduet (map canvas i QGIS), klikker man på Refresh v
 
 ![Figure](QGIS_2025_nhm_images/image_140.png)
 
-Hent inn ```\analyse\koord2p_u32_p.shp``` i QGIS.
+Hent inn ```\06_analyse\koord2p_u32_p.shp``` i QGIS.
 
 Legg punktlaget over flatelaget (reir_ar5_f_s) og ha begge påslått.
 
