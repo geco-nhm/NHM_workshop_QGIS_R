@@ -47,7 +47,7 @@ Author: Anne B. Nilsen NIBIO and Peter Horvath NHM
 - [8. Cartography](#8-cartography)
   - [Labeling](#labeling)
   - [Styles](#styles)
-- [Color Selection in QGIS](#color-selection-in-qgis)
+    - [Color Selection in QGIS](#color-selection-in-qgis)
   - [Show Map Tips](#show-map-tips)
   - [Layout](#layout)
 - [9. Help](#9-help)
@@ -1019,7 +1019,7 @@ You can also copy styles from one layer to one or more others. Right-click on th
 
 **Task:** Copy labels from another layer to `reir_ar5_f_s`.
 
-# Color Selection in QGIS
+### Color Selection in QGIS
 
 Not sure which colors can go well together? Use [ColorBrewer](http://colorbrewer2.org). Here, you can narrow down color options based on the type of data (sequential, diverging, or qualitative) and whether considerations like color blindness, printing, and color copying should be taken into account. You can copy the desired color from ColorBrewer to QGIS by specifying RGB or CMYK values, using the pipette tool in QGIS, or noting the color scale name and entering it in QGIS.
 
