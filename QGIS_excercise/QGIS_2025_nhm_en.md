@@ -613,8 +613,6 @@ Different result depending on planimetric or ellipsoidal	Same result (naturally)
 [Qgis Documentation](https://docs.qgis.org/3.40/en/docs/user_manual/expressions/functions_list.html#id25)
 #### $area
 
-# Area
-
 Returns the area of the current feature. The area calculated by this function respects both the current project's ellipsoid setting and area unit settings. For example, if an ellipsoid has been set for the project then the calculated area will be ellipsoidal, and if no ellipsoid is set then the calculated area will be planimetric.
 [Qgis Documentation](https://docs.qgis.org/3.40/en/docs/user_manual/expressions/functions_list.html#area)
 
@@ -661,6 +659,9 @@ For this exercise, we will use wild garlic as an example. Enter "allium ursinum"
 ![Figure](QGIS_2025_nhm_images/image_169.png)
 
 More information about useful plugins [here](https://docs.qgis.org/3.40/en/docs/training_manual/qgis_plugins/plugin_examples.html)
+
+- Let's also add a plugin called "QuickMapServices" with a variety of background maps that can come in handy
+- and a plugin for mapping Nature Types in Norway "NiN kartlegging"  
 
 # 7. Digitization (mapping)
 
@@ -742,9 +743,7 @@ This will automatically clip polygons that overlap the outline.
 
 ## Ensure legal geometry and topology
 
-# Checking and Avoiding Errors in Digitization
-
-To view and avoid errors during digitization, you can enable geometry and topology checks in the layer under Properties - Digitizing. You have different options depending on the geometry type of the layer.
+Checking and Avoiding Errors in Digitization. To view and avoid errors during digitization, you can enable geometry and topology checks in the layer under Properties - Digitizing. You have different options depending on the geometry type of the layer.
 
 By checking "Is Valid" under Geometry checks, you will not be able to save the edits as long as there are errors. You will be warned about geometry errors during digitization (green crosses). If the error is ignored, you will receive an error message in a separate window.
 
