@@ -53,7 +53,6 @@ Author: Anne B. Nilsen NIBIO and Peter Horvath NHM
 - [Color Selection in QGIS](#color-selection-in-qgis)
   - [Show Map Tips](#show-map-tips)
   - [Layout](#layout)
-  - [Updating Legend](#updating-legend)
 - [9. Help](#9-help)
 
 # 1. Get to know the QGIS setup
@@ -1074,6 +1073,7 @@ Example:
 </html>
 ```
 
+![Figure](QGIS_2025_nhm_images/image_104.png)
 
 A good starting point to learn more about HTML: https://www.w3schools.com/ 
 
