@@ -1031,17 +1031,16 @@ Velg View – Preview Mode og velg ønsket simulering.
 
 ## Show Map tips
 
-I tillegg til (eller i stedet for) påskrift, kan man vise karttips (tekst som vises når man holder cursor over et objekt).
+I tillegg til (eller i stedet for) påskrift, kan man vise **karttips** (tekst som vises når man holder cursor over et objekt).
 
 Marker flatelaget og åpn lagsegenskaper og velg Display-fanen.
 
-Angi et uttrykk, enten en enkelt egenskap eller noe mer sammensatt, f.eks. areal-uttrykket fra tidligere: round(area($geometry),2) || ' m<sup>2</sup>'
+Angi et uttrykk, enten en enkelt egenskap eller noe mer sammensatt, f.eks. areal-uttrykket fra tidligere: `round(area($geometry),2) || ' m<sup>2</sup>'`
 
 Hold cursor over en polygon, og arealtallet vises.
-
+![Figure](QGIS_2025_nhm_images/image_166.png)
 ![Figure](QGIS_2025_nhm_images/image_41.png)
 
-![Figure](QGIS_2025_nhm_images/image_166.png)
 
 Alternativt kan man bruke HTML. Angi et uttrykk, og klikk Insert. Uttrykket endres til HTML-kode. Arealtallet vises på samme måte. (HTML «trumfer» Display Name.)
 
@@ -1051,35 +1050,67 @@ Med HTML kan man stile karttipset med alle style-muligheter som HTML tilbyr.
 
 Eksempel:
 
-Et fint startsted for å lære mer HTML:
+``<!DOCTYPE html>
+<html>
+<body>
+<p>I am normal</p>
+<p style="color:red;">I am red</p>
+<p style="color:blue; font-size:120%;font-family:Verdana">[% round(area($geometry),2) || ' m<sup>2</sup>' %]</p>
+</body>
+</html>``
+
+Et fint startsted for å lære mer HTML: https://www.w3schools.com/ 
 
 ## Layout
 
-[QGIS-manualen: ]
+Man kan ta skjermdumper (klippe ut) dirkete fra kartvinduet (map canvas), f.eks. med greenshot (www.getgreenshot.org).
+I mange tilfeller vil dette duge: presentasjoner, interne dokumenter o.l.
 
-NB! Tenk gjennom hensikten med kartet. Lag skisser for hånd med hensyn til «balanse».
+I canvas kan man legge til ulike kart¬elementer via View – Decorations.
+
+Andre ganger trenger man mer forseggjorte kart til papir- eller illustrasjons-bruk. Da brukes QGIS sin kartmodul «Layout Manager» 
+
+![Figure](QGIS_2025_nhm_images/image_60.png)
+
+
+[QGIS-manualen:](https://docs.qgis.org/testing/en/docs/user_manual/print_composer/overview_composer.html])
+
+**NB! Tenk gjennom hensikten med kartet. Lag skisser for hånd med hensyn til «balanse».**
 
 Hva skal kartet fortelle? Hvilke elementer må da med (ev. krav fra utgiver)? Er nordpil og grid nødvendig? Må man ha med stedsnavn? Bakgrunnskart? Husk less is more – tydeliggjør budskapet.
 
 Hent inn ``\05_kartografi\reir_ar5_f_s.shp``. Kartlaget tegnes med bestemte farger og påskrift da den tilhørende qml-fila (med samme «fornavn») ligger i samme mappe. Aktiver dette kartlaget og zoom inn til ruta i nordvestre hjørne. Sett målestokken til 1:4000.
 
-Velg Project – New Print Layout og angi et navn. (Alternativt: Klikk Layout Manager og så Create (Empty layout) og angi et navn.) Et nytt layout-vindu åpnes.
+Velg `Project – New Print Layout` og angi et navn. (Alternativt: Klikk Layout Manager og så Create (Empty layout) og angi et navn.) Et nytt layout-vindu åpnes.
 
 Høyreklikk på arket og sett arkstørrelse og retning (Page properties, A4 liggende).
 
-Start med å legge til et kart med . Kartlaget vises. Klikk «Set Map Scale to Match Main Canvas Scale». Kartutsnittet tegnes innafor kartramma i målestokk 1:4000.
+Start med å legge til et kart med ![Figure](QGIS_2025_nhm_images/image_126.png). 
+Kartlaget vises. Klikk «Set Map Scale to Match Main Canvas Scale». Kartutsnittet tegnes innafor kartramma i målestokk 1:4000. ![Figure](QGIS_2025_nhm_images/image_158.png)
 
-![Figure](QGIS_2025_nhm_images/image_126.png)
-
-![Figure](QGIS_2025_nhm_images/image_158.png)
-
-Flytter og endrer kartelementstørrelse med  og mer nøyaktig under Item properties-fanen og «Position and Size». NB! Når man er fornøyd huker man av for Lock Layers.
-
-![Figure](QGIS_2025_nhm_images/image_27.png)
+Flytter og endrer kartelementstørrelse med ![Figure](QGIS_2025_nhm_images/image_27.png) og mer nøyaktig under Item properties-fanen og «Position and Size». NB! Når man er fornøyd huker man av for Lock Layers.
 
 Gi kartelementet navn (default er Map 1): map nv.
 
 Setter inn flere kartelementer og lar alle elementnavn inneholde nv (scale nv, legend nv osv.):
+
+-	overskrift (label).
+-	målestokk – gjerne både som linjal (scale bar) og tall (numeric).
+- tegnforklaring. Det er god kartografi kun å ha med objekttyper i tegnforklaringen som er med i kartet (slik at man ikke leter etter forekomster oppgitt i forklaringen som ikke finnes i kartet). Klikk da på trakten for å filtrere tegnforklaring basert på kartinnhold.
+Slå av Auto update, høyreklikk på overskriften (kartlagsnavnet) og velg Hidden. Skriv inn tittel Arealtyper. Velg skrift og størrelse under Fonts og mellomrom (luft/avstander) under Spacing.
+-	rutenett med koordinater under Grids.
+
+![Figure](QGIS_2025_nhm_images/image_61.png)
+
+Skal vise flere habitat på samme kart (i samme illustrasjon), dvs. sette inn ei rute (et habitat) til.
+Gå til QGIS og zoom inn på ruta i sørøst (målestokk 1:4000).
+I stedet for å starte på nytt, tar vi en kopi av kartelementa vi allerede har og limer de inn ved siden av i flukt med det først kartet. Endrer fra nv til sø i elementnavna. (Valgt kart-element vises i fet skrift i Item-lista.)
+Velg det nye kartet og slå av Lock layers og klikk på «Set Map Extent to Match Main Canvas Extent» og så på «Set Map Scale to Match Main Canvas Scale» Da vises sørøstre kartutsnitt i 1:4000.
+
+Sentrer kartet. Slå på Lock layers. Både for målestokk og tegnforklaring må vi oppgi map sø som kartreferanse.
+Ruta i sørøst inneholder færre arealtyper enn ruta i nordvest. Lagrer layout.
+
+![Figure](QGIS_2025_nhm_images/image_90.png) ![Figure](QGIS_2025_nhm_images/image_127.png)
 
 Gjør man endringer i kartvinduet (map canvas i QGIS), klikker man på Refresh view (F5)  i Layout. Husk å ha Lock layers påslått (ellers vil kartutsnittene kunne endre seg om man har zoomet inn til et annet område i kartvinduet).
 
@@ -1091,7 +1122,7 @@ Legg punktlaget over flatelaget (reir_ar5_f_s) og ha begge påslått.
 
 I Layout vil ikke punktene i utgangspunktene være synlige. Aktiver aktuelt kart og slå av Lock layers. Da dukker et rødt punkt opp. Slå på Lock layers igjen. Gjør tilsvarende for det andre kartet.
 
-Vi må oppdatere tegnforklaringen. Klikk på pluss og legg til koord2p_u32_p og døp om til fuglereir. Gjenta for det andre kartet.
+Vi må oppdatere tegnforklaringen. Klikk på pluss og legg til ``koord2p_u32_p`` og døp om til fuglereir. Gjenta for det andre kartet.
 
 Til slutt kan vi eksportere kartet ut som et bilde. Klikk på Export as image . Man har mange bildefilformater å velge mellom. Mest vanlig er nok tif(f), jp(e)g og png avhengig av senere bruk.
 
@@ -1105,19 +1136,19 @@ Lagrer prosjektet.
 
 Neste gang prosjektet åpnes, vil man ha layouten (kartet) tilgjengelig via Layout Manager. (Forutsetter at de samme kartlagene eksiterer i prosjektet. Fjerner man et kartlag eller navner om et kartlag, kan det med føre at elementer mangler i layout eller må navnes om.)
 
-![Figure](QGIS_2025_nhm_images/image_42.tiff)
+![Figure](QGIS_2025_nhm_images/image_42.png)
 
 Legg til ev. tilleggsopplysninger vha. tekstboks. (Beskrivelser, forklaringer, datum, projeksjon, når feltarbeidet har funnet sted, når kartet er laget, personer som har gjort hva, oppdragsgiver osv.)
 
 # 9. Hjelp
 
-Lurer på hvordan noe gjøres i QGIS?
+Lurer på hvordan noe gjøres i QGIS? GPT har ofte gode svar!
 
-Se i
+Se i docs.qgis.org/testing/en/docs/index.html
 
-Eller se hva andre har lagt ut:
+Eller se hva andre har lagt ut: https://www.qgistutorials.com/en/ 
 
-Let etter svar eller spør (men rtfm):
+Let etter svar eller spør (men rtfm): https://gis.stackexchange.com/questions/tagged/qgis
 
 Søk på nettet
 

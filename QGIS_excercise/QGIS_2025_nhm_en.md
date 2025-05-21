@@ -1045,16 +1045,15 @@ Select View – Preview Mode and choose the desired simulation.
 
 ## Show Map Tips
 
-In addition to (or instead of) labels, you can display map tips (text that appears when hovering over an object).
+In addition to (or instead of) labels, you can display **map tips** (text that appears when hovering over an object).
 
 Select the polygon layer, open the layer properties, and choose the Display tab.
 
 Enter an expression, either a single property or something more complex, e.g. the area expression from earlier: `round(area($geometry),2) || ' m<sup>2</sup>'`
 
 Hover over a polygon, and the area value will be displayed.
-
-![Figure](QGIS_2025_nhm_images/image_41.png)
 ![Figure](QGIS_2025_nhm_images/image_166.png)
+![Figure](QGIS_2025_nhm_images/image_41.png)
 
 Alternatively, you can use HTML. Enter an expression, and click Insert. The expression will be converted to HTML code. The area value will be displayed in the same way. (HTML overrides Display Name.)
 
@@ -1063,14 +1062,34 @@ Alternatively, you can use HTML. Enter an expression, and click Insert. The expr
 With HTML, you can style the map tip using all the styling options that HTML offers.
 
 Example:
+ 
+``<!DOCTYPE html>
+<html>
+<body>
+<p>I am normal</p>
+<p style="color:red;">I am red</p>
+<p style="color:blue; font-size:120%;font-family:Verdana">[% round(area($geometry),2) || ' m<sup>2</sup>' %]</p>
+</body>
+</html>``
 
-A good starting point to learn more about HTML:
+
+A good starting point to learn more about HTML: https://www.w3schools.com/ 
+
 
 ## Layout
 
-[QGIS Manual: ]
+You can take screenshots (cut out) directly from the map window (map canvas), e.g. with greenshot (www.getgreenshot.org).
+In many cases this will be sufficient: presentations, internal documents, etc.
 
-NB! Consider the purpose of the map. Sketch by hand with regard to "balance."
+In the canvas you can add various map elements via View – Decorations.
+
+Other times you need more elaborate maps for paper or illustration use. In that case, use QGIS's map module "Layout Manager"
+
+![Figure](QGIS_2025_nhm_images/image_60.png)
+
+[QGIS-manualen:](https://docs.qgis.org/testing/en/docs/user_manual/print_composer/overview_composer.html])
+
+**NB! Consider the purpose of the map. Sketch by hand with regard to "balance."**
 
 What should the map convey? Which elements must be included (if any requirements from the publisher)? Is a north arrow and grid necessary? Must place names be included? Background map? Remember less is more - clarify the message.
 
@@ -1080,17 +1099,31 @@ Select Project - New Print Layout and enter a name. (Alternatively: Click Layout
 
 Right-click on the sheet and set the sheet size and orientation (Page properties, A4 landscape).
 
-Start by adding a map with . The map layer is displayed. Click "Set Map Scale to Match Main Canvas Scale". The map extent is drawn within the map frame at a scale of 1:4000.
+Start by adding a map with ![Figure](QGIS_2025_nhm_images/image_126.png). The map layer is displayed. Click "Set Map Scale to Match Main Canvas Scale". The map extent is drawn within the map frame at a scale of 1:4000. ![Figure](QGIS_2025_nhm_images/image_158.png)
 
-![Figure](QGIS_2025_nhm_images/image_126.png)
+Move and resize the map elements with ![Figure](QGIS_2025_nhm_images/image_27.png) and more precisely under the Item properties tab and "Position and Size". NB! When satisfied, check Lock Layers.
 
-![Figure](QGIS_2025_nhm_images/image_158.png)
 
-Move and resize the map elements with  and more precisely under the Item properties tab and "Position and Size". NB! When satisfied, check Lock Layers.
+Insert multiple map elements and allows all element names to contain nv (scale nv, legend nv, etc.):
 
-![Figure](QGIS_2025_nhm_images/image_27.png)
+- title (label).
+- scale – preferably both as a ruler (scale bar) and numbers (numeric).
+- legend. It is good cartography to only include object types in the legend that are included in the map (so that one does not look for occurrences stated in the legend that are not in the map). Then click on the funnel to filter the legend based on map content.
+Turn off Auto update, right-click on the title (map layer name) and select Hidden. Enter the title Area types. Select font and size under Fonts and spacing (air/distances) under Spacing.
+- grid with coordinates under Grids.
+  
+![Figure](QGIS_2025_nhm_images/image_61.png)
 
+To  show more habitats on the same map (in the same illustration), i.e. insert a new box (a habitat).
+Go to QGIS and zoom in on the box in the southeast (scale 1:4000).
+Instead of starting over, we take a copy of the map elements we already have and paste them next to it in line with the first map. Change from nv to sø in the element names. (Selected map element is displayed in bold in the Item list.)
+Select the new map and turn off Lock layers and click on "Set Map Extent to Match Main Canvas Extent" and then on "Set Map Scale to Match Main Canvas Scale". Then the southeast map section is displayed in 1:4000.
+
+Center the map. Turn on Lock layers. For both scale and legend, we must specify map sø as the map reference.
+The box in the southeast contains fewer area types than the box in the northwest. Save layout.
 Name the map element (default is Map 1): map nw.
+
+![Figure](QGIS_2025_nhm_images/image_90.png) ![Figure](QGIS_2025_nhm_images/image_127.png)
 
 Insert more map elements and let all element names contain nw (scale nw, legend nw, etc.):
 
@@ -1104,9 +1137,7 @@ Place the point layer above the polygon layer (reir_ar5_f_s) and have both turne
 
 In the Layout, the points will not initially be visible. Activate the relevant map and turn off Lock layers. A red point will appear. Turn on Lock layers again. Do the same for the other map.
 
-## Updating Legend
-
-We need to update the legend. Click on the plus sign and add koord2p_u32_p and rename it to bird's nest. Repeat for the other map.
+We need to update the legend. Click on the plus sign and add ``koord2p_u32_p`` and rename it to bird's nest. Repeat for the other map.
 
 Finally, we can export the map as an image. Click on Export as image. There are many image file formats to choose from. The most common are probably tif(f), jp(e)g, and png depending on future use.
 
@@ -1126,13 +1157,13 @@ Add any additional information using a text box. (Descriptions, explanations, da
 
 # 9. Help
 
-Wondering how something is done in QGIS?
+Wondering how something is done in QGIS? GPT often has good answers
 
-Check
+Check docs.qgis.org/testing/en/docs/index.html
 
-Or see what others have posted:
+Or see what others have posted:  https://www.qgistutorials.com/en/ 
 
-Look for answers or ask (but rtfm):
+Look for answers or ask (but rtfm): https://gis.stackexchange.com/questions/tagged/qgis
 
 Search the internet
 
