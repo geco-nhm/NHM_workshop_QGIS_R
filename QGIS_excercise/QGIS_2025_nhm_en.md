@@ -1063,14 +1063,16 @@ With HTML, you can style the map tip using all the styling options that HTML off
 
 Example:
  
-``<!DOCTYPE html>
+```
+<!DOCTYPE html>
 <html>
 <body>
 <p>I am normal</p>
 <p style="color:red;">I am red</p>
 <p style="color:blue; font-size:120%;font-family:Verdana">[% round(area($geometry),2) || ' m<sup>2</sup>' %]</p>
 </body>
-</html>``
+</html>
+```
 
 
 A good starting point to learn more about HTML: https://www.w3schools.com/ 
