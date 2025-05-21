@@ -33,7 +33,6 @@ Author: Anne B. Nilsen NIBIO and Peter Horvath NHM
     - [Measure area](#measure-area)
       - [area($geometry)](#areageometry)
       - [$area](#area)
-- [Area](#area-1)
 - [5. GeoPackage](#5-geopackage)
 - [6. Plugins](#6-plugins)
 - [7. Digitization (mapping)](#7-digitization-mapping)
@@ -42,11 +41,9 @@ Author: Anne B. Nilsen NIBIO and Peter Horvath NHM
   - [Drawing rules](#drawing-rules)
   - [Area delineation](#area-delineation)
   - [Ensure legal geometry and topology](#ensure-legal-geometry-and-topology)
-- [Checking and Avoiding Errors in Digitization](#checking-and-avoiding-errors-in-digitization)
   - [Digitization Tips](#digitization-tips)
   - [Troubleshooting, Corrections, and Control](#troubleshooting-corrections-and-control)
   - [Topology Checker](#topology-checker)
-- [Topology](#topology)
 - [8. Cartography](#8-cartography)
   - [Labeling](#labeling)
   - [Styles](#styles)
@@ -54,6 +51,7 @@ Author: Anne B. Nilsen NIBIO and Peter Horvath NHM
   - [Show Map Tips](#show-map-tips)
   - [Layout](#layout)
 - [9. Help](#9-help)
+
 
 # 1. Get to know the QGIS setup
 
@@ -866,8 +864,6 @@ After registration is complete, you must check that everything is digitized corr
 QGIS offers good opportunities to find and correct errors afterwards.
 
 ## Topology Checker
-
-# Topology
 
 It is important that the map's topology is correct. Topology errors are displayed, as mentioned, with a green cross. Always check the topology afterwards with the Topology Checker. This is a pre-installed program add-on that is activated in Plugins - Manage and Install Plugins. Enter "topol" and check Topology Checker.
 
